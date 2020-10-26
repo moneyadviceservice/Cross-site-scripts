@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>TP11759</title>
+	</head>
+	<body>
+		<h1>TP11759: Safari - Cross Site Resourcing issue (BP and other tools)</h1>
+
+		<h2>Test page</h2>
+
+		<p>This page is designed to include a MAS tool embedded in the same as on partner sites.</p>
+
+		<div>
+			<noscript>
+				<p>You have javascript turned off. Please turn javascript on to see the tools in action.</p>
+			</noscript>
+
+			<p>
+				<a 
+					id="budget_planner" 
+					class="mas-widget" 
+					target="_blank" 
+					lang="en" 
+					href="https://www.moneyadviceservice.org.uk/en/tools/budget-planner"
+				>Budget Planner</a>
+			</p>
+		</div>
+
+		<script src="https://www.moneyadviceservice.org.uk/assets/syndication/tools.js"></script>
+	</body>
+</html>
