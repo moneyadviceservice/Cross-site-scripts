@@ -22,69 +22,82 @@ const queryAccess = () => {
 		console.log('hasStorageAccess IS known to this browser!'); 
 		console.log('Interrupting the load of the test page to find out if we have access or not!'); 
 
-		document.hasStorageAccess().then(
-			function(hasAccess) {
-				console.log('hasAccess: ', hasAccess); 
+		const btn = document.querySelector('button'); 
 
-				if (hasAccess) {
-					console.log('We DO have access!'); 
+		btn.addEventListener('click', () => {
+			showConfirmation();
+		}); 
 
-					return; 
-				} else {
-					console.log('We DO NOT have access!'); 
+		// document.hasStorageAccess().then(
+		// 	hasAccess => {
+		// 		if (!hasAccess) {
+		// 			console.log('We DO NOT have access!'); 
+		// 			console.log('Requesting access!'); 
 
-					// request access
-					console.log('Requesting access!'); 
+		// 			return document.requestStorageAccess(); 
+		// 		}
+		// 	}).then(_ => {				
+		// 		console.log('Now we DO have access!'); 
+		// 	}).catch(e => {
+		// 		console.log('Some kinda shit went on getting access!'); 
+		// 		console.log(e); 
+		// 	}
+		// );  
 
-					showConfirmation(); // .then(
-					// 	console.log('WTF?')
-					// ).catch(
-					// 	console.log('WTAF?')
-					// ); 
+			// function(hasAccess) {
+			// 	console.log('hasAccess: ', hasAccess); 
 
-					// window.confirm('Do you wanna continue?').then(
-					// 	function() {
-					// 		console.log('something!'); 
-					// 	}
-					// ).catch(
-					// 	function() {
-					// 		console.log('something else!'); 
-					// 	}
-					// )
+			// 	if (hasAccess) {
+			// 		console.log('We DO have access!'); 
 
-					// function promptAccepted() {
-						// document.requestStorageAccess().then(
-						// 	() => {
-						// 		console.log('user says yes!'); 								
-						// 	}
-						// ).catch(e => {
-						// 		console.log('user says no!');
-						// })
-				// 	}
-				}
-			// function(reason) {
-			// 	console.log('reason: ', reason); 
-			}
-		// );
-		)
+			// 		return; 
+			// 	} else {
+			// 		console.log('We DO NOT have access!'); 
+			// 		console.log('Requesting access!'); 
+
+			// 	}
+			// }
+		// )
 	}
 }
 
 const showConfirmation = () => {
-	document.requestStorageAccess().then(
-		() => {
-			console.log('Access granted'); 
-			// return true; 
-		}, 
-		() => {
-			console.log('Access denied'); 
-		}
-	).catch(e => {
-		() => {
-			console.log('Some shit went on!'); 
-			// return false; 
-		}
-	})
+	console.log('showConfirmation!'); 
+
+	// if (window.confirm('Do you wanna continue?')) {
+		document.hasStorageAccess().then(
+			hasAccess => {
+				if (!hasAccess) {
+					console.log('We DO NOT have access!'); 
+					console.log('Requesting access!'); 
+
+					return document.requestStorageAccess(); 
+				}
+			}).then(_ => {				
+				console.log('Now we DO have access!'); 
+			}).catch(e => {
+				console.log('Some kinda shit went on getting access!'); 
+				console.log(e); 
+			}
+		);  
+	// }
+
+	// console.log('btn: ', btn); 
+
+	// document.requestStorageAccess().then(
+	// 	() => {
+	// 		console.log('Access granted'); 
+	// 		// return true; 
+	// 	}, 
+	// 	() => {
+	// 		console.log('Access denied'); 
+	// 	}
+	// ).catch(e => {
+	// 	() => {
+	// 		console.log('Some shit went on!'); 
+	// 		// return false; 
+	// 	}
+	// })
 }
 
 	// if (window.confirm('Do you wanna continue?')) {
