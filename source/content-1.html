@@ -14,7 +14,7 @@
 					'<button>Submit</button>' + 
 				'</form>'; 
 
-			var link = '<a href="#">Link to our content</a>'
+			var button = '<button id="requestAccessBtn">Request Access</button>'
 
 	    console.log('Determining if the `hasStorageAccess` method of the Storage Access API is known to this browser ...'); 
 
@@ -36,13 +36,33 @@
 	          } else {
 	            console.log('We DO NOT have access to Storage/Cookies!'); 
 
-				      document.write(link); 
+				      document.write(button);
+
+				      document.getElementById('requestAccessBtn').addEventListener('click', requestAccess); 
 	          }
 	        }
 	      ).catch(e => {
 	        console.log('Could not determine if we have access!'); 
 	        console.log(e); 
 	      })
+	    }
+
+	    var requestAccess = function() {
+	      console.log('Requesting access to Storage/Cookies ...'); 
+
+	      document.requestStorageAccess().then(
+	        function successful() {
+	          console.log('We have been granted access to Storage/Cookies!'); 
+
+			      document.getElementById('requestAccessBtn').parentNode.innerHTML = page; 
+	        }, 
+	        function fail() {
+	          console.log('We have NOT been granted access to Storage/Cookies!'); 
+	        }
+	      ).catch(e => {
+	        console.log('Some kinda shit went on!'); 
+	        console.log(e); 
+	      }); 
 	    }
 		</script>
 	</body>
