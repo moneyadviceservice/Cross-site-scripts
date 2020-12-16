@@ -3,14 +3,47 @@
 	<head>
 		<title>Content 1</title>
 	</head>
+
 	<body>
-		<h1>Content page 1</h1>
+		<script type="text/javascript">
+			var page = 
+				'<h1>Content page 1</h1>' + 
+				'<p>This page is designed to include some content that can be embedded in the test page.</p>' +
+				'<form action="content-2">' + 
+					'<input type="text"/>' + 
+					'<button>Submit</button>' + 
+				'</form>'; 
 
-		<p>This page is designed to include some content that can be embedded in the test page.</p>
+			var link = '<a href="#">Link to our content</a>'
 
-		<form action="content-2">
-			<input type="text"/>
-			<button>Submit</button>
-		</form>
+	    console.log('Determining if the `hasStorageAccess` method of the Storage Access API is known to this browser ...'); 
+
+	    if (document.hasStorageAccess === undefined) {
+	      console.log('`hasStorageAccess` IS NOT known to this browser!'); 
+
+	      document.write(page); 
+	    } else {
+	      console.log('hasStorageAccess IS known to this browser!'); 
+
+	      document.hasStorageAccess().then(
+	        hasAccess => {
+	          console.log('Determining if we have access to Storage/Cookies ...'); 
+
+	          if (hasAccess) {
+	            console.log('We DO have access to Storage/Cookies!');
+
+				      document.write(page); 
+	          } else {
+	            console.log('We DO NOT have access to Storage/Cookies!'); 
+
+				      document.write(link); 
+	          }
+	        }
+	      ).catch(e => {
+	        console.log('Could not determine if we have access!'); 
+	        console.log(e); 
+	      })
+	    }
+		</script>
 	</body>
 </html>
