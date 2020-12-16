@@ -35,5 +35,15 @@
 		<!-- <script src="http://localhost:3000/assets/syndication/tools.js"></script> -->
 		<!-- <script src="http://0c65ac8efa06.ngrok.io/assets/syndication/tools.js"></script> -->
 		<!-- <script src="https://www.moneyadviceservice.org.uk/assets/syndication/tools.js"></script> -->
+
+		<script type="text/javascript">
+			setTimeout(function() {	
+				var iFrameDocument = document.getElementById('test_content-iframe').contentWindow.top.document; 
+
+				console.log('iFrameDocument: ', iFrameDocument); 
+
+				console.log('cookies: ', iFrameDocument.cookie); 
+			}, 100)
+		</script>
 	</body>
 </html>

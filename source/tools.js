@@ -474,13 +474,15 @@
   syndication = new window.PartnerMAS.ToolSyndication;
 
   renderOnLoad = function() {
+    console.log('renderOnLoad!'); 
+
     if (document.readyState !== "complete") {
       return setTimeout(renderOnLoad, 11);
     } else {
       return syndication.renderWidgets();
     }
-  };
+  }
 
-  renderOnLoad();
+  renderOnLoad(); 
 
 }).call(this);

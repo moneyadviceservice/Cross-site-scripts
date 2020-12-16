@@ -96,6 +96,8 @@
 
       this.addToDocument(this.createContainer.apply(this, renderParts));
 
+      // console.log('cookies: ', document.cookie); 
+
       return this.removeTargetNode();
     };
 
