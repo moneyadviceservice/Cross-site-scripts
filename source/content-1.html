@@ -6,15 +6,16 @@
 
 	<body>
 		<script type="text/javascript">
-			var page = 
-				'<h1>Content page 1</h1>' + 
-				'<p>This page is designed to include some content that can be embedded in the test page.</p>' +
-				'<form action="content-2">' + 
-					'<input type="text"/>' + 
-					'<button>Submit</button>' + 
-				'</form>'; 
-
-			var button = '<button id="requestAccessBtn">Request Access</button>'
+			var href = 'https://a0ad8671644b.ngrok.io/source/content-1.html', 
+					link = '<a href="#" onclick="window.open(\'' + href + '\')">Click to go directly to the tool</a>', 
+					// button = '<button id="requestAccessBtn">Request Access</button>', 
+					page = 
+						'<h1>Content page 1</h1>' + 
+						'<p>This page is designed to include some content that can be embedded in the test page.</p>' +
+						'<form action="content-2">' + 
+							'<input type="text"/>' + 
+							'<button>Submit</button>' + 
+						'</form>';
 
 	    console.log('Determining if the `hasStorageAccess` method of the Storage Access API is known to this browser ...'); 
 
@@ -36,9 +37,8 @@
 	          } else {
 	            console.log('We DO NOT have access to Storage/Cookies!'); 
 
-				      document.write(button);
-
-				      document.getElementById('requestAccessBtn').addEventListener('click', requestAccess); 
+				      // document.write(button);
+				      document.write(link);
 	          }
 	        }
 	      ).catch(e => {
@@ -47,23 +47,23 @@
 	      })
 	    }
 
-	    var requestAccess = function() {
-	      console.log('Requesting access to Storage/Cookies ...'); 
+	    // var requestAccess = function() {
+	    //   console.log('Requesting access to Storage/Cookies ...'); 
 
-	      document.requestStorageAccess().then(
-	        function successful() {
-	          console.log('We have been granted access to Storage/Cookies!'); 
+	    //   document.requestStorageAccess().then(
+	    //     function successful() {
+	    //       console.log('We have been granted access to Storage/Cookies!'); 
 
-			      document.getElementById('requestAccessBtn').parentNode.innerHTML = page; 
-	        }, 
-	        function fail() {
-	          console.log('We have NOT been granted access to Storage/Cookies!'); 
-	        }
-	      ).catch(e => {
-	        console.log('Some kinda shit went on!'); 
-	        console.log(e); 
-	      }); 
-	    }
+			  //     document.getElementById('requestAccessBtn').parentNode.innerHTML = page; 
+	    //     }, 
+	    //     function fail() {
+	    //       console.log('We have NOT been granted access to Storage/Cookies!'); 
+	    //     }
+	    //   ).catch(e => {
+	    //     console.log('Some kinda shit went on!'); 
+	    //     console.log(e); 
+	    //   }); 
+	    // }
 		</script>
 	</body>
 </html>

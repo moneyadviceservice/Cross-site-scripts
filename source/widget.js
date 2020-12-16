@@ -108,7 +108,7 @@
 
     Widget.prototype.createIFrame = function() {
       return '<iframe ' +
-        'sandbox="allow-storage-access-by-user-activation allow-scripts allow-forms allow-same-origin"' + 
+        'sandbox="allow-top-navigation-by-user-activation allow-scripts allow-forms allow-popups allow-same-origin"' + 
         'class="' + masConfig.iframeClass + '"' +
         'id="' + this.targetNode.id + '-iframe"' + 
         (masConfig.iframeSrc(this.targetNode)) + 
