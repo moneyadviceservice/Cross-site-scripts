@@ -2,11 +2,23 @@
 <html>
 	<head>
 		<title>Content 1</title>
+		<script src="widget.js"></script>
+		<script src="tool_syndication.js"></script>
+		<script src="tools.js"></script>
 	</head>
 
 	<body>
 		<script type="text/javascript">
-			var href = 'https://a0ad8671644b.ngrok.io/source/content-1.html', 
+			// console.log('document: ', document); 
+
+			var widget = new window.PartnerMAS.Widget(document); 
+
+			console.log('widget: ', widget); 
+			console.log('masConfig: ', masConfig); 
+
+			// widget.renderIFrame(); 
+
+			var href = 'https://bdedaa666f42.ngrok.io/source/content-1.html', 
 					link = '<a href="#" onclick="window.open(\'' + href + '\')">Click to go directly to the tool</a>', 
 					// button = '<button id="requestAccessBtn">Request Access</button>', 
 					page = 
@@ -22,7 +34,8 @@
 	    if (document.hasStorageAccess === undefined) {
 	      console.log('`hasStorageAccess` IS NOT known to this browser!'); 
 
-	      document.write(page); 
+	      // document.write(page); 
+	      document.src = href; 
 	    } else {
 	      console.log('hasStorageAccess IS known to this browser!'); 
 

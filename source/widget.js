@@ -68,6 +68,7 @@
 
     Widget.prototype.setPartnerToolsURL = function() {
       var domains, hostname;
+
       domains = {
         'www.preview.dev.mas.local': 'https://preview-partner-tools.dev.mas.local/',
         'www.qa.dev.mas.local': 'https://qa-partner-tools.dev.mas.local/',
@@ -85,7 +86,7 @@
         // syndication_url: 'https://cultivate-partner-tools.dev.mas.local/',
         // syndication_url: 'https://uat-partner-tools.dev.mas.local/',
         // syndication_url: 'http://localhost:5000',
-        syndication_url: 'https://56fc7182b97b.ngrok.io',
+        syndication_url: 'https://bdedaa666f42.ngrok.io',
         syndication: {
           ga_iframe_url: 'https://partner-tools.moneyadviceservice.org.uk/partner_ga_iframe.html'
         }
@@ -111,7 +112,7 @@
         'sandbox="allow-top-navigation-by-user-activation allow-scripts allow-forms allow-popups allow-same-origin"' + 
         'class="' + masConfig.iframeClass + '"' +
         'id="' + this.targetNode.id + '-iframe"' + 
-        (masConfig.iframeSrc(this.targetNode)) + 
+        // (masConfig.iframeSrc(this.targetNode)) + 
         'scrolling="' + masConfig.iframeScrolling + '"' +
         'frameborder="' + masConfig.iframeBorder + '"' +
         'width="' + (this.dataAttr('width')) + '"' +
